@@ -1,13 +1,26 @@
-import React from 'react';
-import './App.css';
-import AppHeader from './components/AppHeader';
+import React from "react";
+import "./App.css";
+import AppHeader from "./components/AppHeader";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import FilmBlock from "./components/AppHeader/NavigationBlock/FilmBlock";
 
-function App() {
+let router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppHeader />,
+    children: [
+      {
+        path: "filmBlock",
+        element: <FilmBlock />,
+      },
+    ],
+  },
+]);
+
+export default function App() {
   return (
-    <div className="App">
-      <AppHeader />
-    </div>
+    // <div className="App">
+    <RouterProvider router={router} />
+    // </div>
   );
 }
-
-export default App;

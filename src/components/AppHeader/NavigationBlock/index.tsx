@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
 import "./styles.css";
 
-
-
 const NavigationBlock = () => {
-    return (
-        <div className="navigationBlock">
-            <button className="films">FILMS</button>
-            <button className="series">SERIES</button>
-        </div>
-    )
-}
+  return (
+    <div className="navigationBlock">
+      <Link to="filmBlock">
+        <button className="films">FILMS</button>
+      </Link>
+      <button className="series">SERIES</button>
+    </div>
+  );
+};
 
-export default NavigationBlock
+export default NavigationBlock;

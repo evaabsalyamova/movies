@@ -1,27 +1,23 @@
-
 export interface IFilm {
-    name: string;
-    year: number;
-    poster: string;
+  name: string;
+  year: number;
+  poster: string;
 }
 
 export interface IExternalFilm {
-    nameEn: string;
-    year: number;
-    posterUrlPreview: string;
+  nameEn: string;
+  year: number;
+  posterUrlPreview: string;
 }
 
 export interface IExternalFilms {
-    items:IExternalFilm[]
+  items: IExternalFilm[];
 }
 
-export const filmsMapper = (externalFilms: IExternalFilms): IFilm[] => {
-    return externalFilms.items.map(externalFilm => ({
+export const filmsMapper = (externalFilms: IExternalFilm[]): IFilm[] => {
+  return externalFilms.map((externalFilm) => ({
     name: externalFilm.nameEn,
     year: externalFilm.year,
-    poster:externalFilm.posterUrlPreview
-}))
-}
-
-
-  
+    poster: externalFilm.posterUrlPreview,
+  }));
+};

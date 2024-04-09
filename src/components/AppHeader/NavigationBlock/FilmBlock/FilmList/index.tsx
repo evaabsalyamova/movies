@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../redux";
+import FilmCard from "./FilmCard";
 
 const FilmList = () => {
   const films = useSelector((state: RootState) => state.movies);
@@ -12,7 +13,7 @@ const FilmList = () => {
   return (
     <div className="filmItemsBlock">
       {films.map((film) => (
-        <div key={film.id}>{film.name}</div>
+        <FilmCard />
       ))}
     </div>
   );

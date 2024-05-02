@@ -13,7 +13,7 @@ const FilmList = () => {
   return (
     <div className="filmItemsBlock">
       {films.map((film) => (
-        <FilmCard />
+        <FilmCard data={film} />
       ))}
     </div>
   );

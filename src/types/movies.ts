@@ -6,10 +6,12 @@ export interface IFilm {
 }
 
 export interface IExternalFilm {
-  nameOriginal: string;
   kinopoiskId: number;
   year: number;
   posterUrlPreview: string;
+  nameEn?: string;
+  nameRu?: string;
+  nameOriginal?: string;
 }
 
 export interface IExternalFilmsData {
@@ -20,7 +22,11 @@ export interface IExternalFilmsData {
 
 export const filmsMapper = (externalFilms: IExternalFilmsData): IFilm[] => {
   return externalFilms.items.map((externalFilm) => ({
-    name: externalFilm.nameOriginal,
+    name:
+      externalFilm.nameOriginal ??
+      externalFilm.nameEn ??
+      externalFilm.nameRu ??
+      "Без названия",
     id: externalFilm.kinopoiskId,
     year: externalFilm.year,
     poster: externalFilm.posterUrlPreview,

@@ -1,4 +1,5 @@
 import { IFilm } from "../../../../../../types/movies";
+import "./styles.css";
 
 interface IProps {
   data: IFilm;
@@ -6,9 +7,9 @@ interface IProps {
 const FilmCard: React.FunctionComponent<IProps> = ({ data }) => {
   return (
     <div className="filmCardBlock">
-      <div>{data.name}</div>
+      <img className="filmPoster" src={data.poster} alt="poster" />
+      <div className="filmNameBlock">{data.name}</div>
       <div>{data.year}</div>
-      <img src={data.poster} alt="poster" />
     </div>
   );
 };

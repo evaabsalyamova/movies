@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../redux";
 import FilmCard from "./FilmCard";
+import "./styles.css";
 
 const FilmList = () => {
   const films = useSelector((state: RootState) => state.movies);

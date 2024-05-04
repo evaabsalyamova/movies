@@ -21,12 +21,25 @@ export interface IExternalFilmsData {
 }
 
 export const filmsMapper = (externalFilms: IExternalFilmsData): IFilm[] => {
+  const getFilmName = ({
+    nameOriginal,
+    nameEn,
+    nameRu,
+  }: IExternalFilm): string => {
+    if (nameOriginal && nameOriginal.length > 0) {
+      return nameOriginal;
+    }
+    if (nameEn && nameEn.length > 0) {
+      return nameEn;
+    }
+    if (nameRu && nameRu.length > 0) {
+      return nameRu;
+    }
+    return "Без названия";
+  };
+
   return externalFilms.items.map((externalFilm) => ({
-    name:
-      externalFilm.nameOriginal ??
-      externalFilm.nameEn ??
-      externalFilm.nameRu ??
-      "Без названия",
+    name: getFilmName(externalFilm),
     id: externalFilm.kinopoiskId,
     year: externalFilm.year,
     poster: externalFilm.posterUrlPreview,

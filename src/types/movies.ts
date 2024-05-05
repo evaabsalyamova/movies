@@ -20,6 +20,14 @@ export interface IExternalFilmsData {
   pages: number;
 }
 
+export interface IGenre {
+  id: number;
+  genre: string;
+}
+export interface IFiltersData {
+  genres: IGenre[];
+}
+
 export const filmsMapper = (externalFilms: IExternalFilmsData): IFilm[] => {
   const getFilmName = ({
     nameOriginal,

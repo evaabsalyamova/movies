@@ -5,7 +5,6 @@ import "./styles.css";
 
 const FilmList = () => {
   const films = useSelector((state: RootState) => state.movies);
-  const genres = useSelector((state: RootState) => state.genres);
 
   console.log("REDUX", films);
 
@@ -15,10 +14,6 @@ const FilmList = () => {
 
   return (
     <div className="filmItemsBlock">
-      {genres.map((genre) => (
-        <div>{genre.genre}</div>
-      ))}
-
       {films.map((film) => (
         <FilmCard data={film} />
       ))}

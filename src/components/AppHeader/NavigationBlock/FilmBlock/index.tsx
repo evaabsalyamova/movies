@@ -10,10 +10,13 @@ import GenresItem from "./FilmList/GenresItem";
 const FilmBlock: React.FunctionComponent = () => {
   const dispatch = useDispatch();
   const genres = useSelector((state: RootState) => state.genres);
+
   useEffect(() => {
     const filmList = getFilms();
     if (filmList) {
-      filmList.then((data) => dispatch(addInitialFilms(filmsMapper(data))));
+      filmList.then((data) =>
+        dispatch(addInitialFilms(filmsMapper(data.items)))
+      );
     }
     const genres = getGenres();
     if (genres) {
@@ -21,9 +24,21 @@ const FilmBlock: React.FunctionComponent = () => {
     }
   }, [dispatch]);
 
+  const onAllGenreClick = () => {
+    const filmList = getFilms();
+    if (filmList) {
+      filmList.then((data) =>
+        dispatch(addInitialFilms(filmsMapper(data.items)))
+      );
+    }
+  };
+
   return (
     <div className="filmBlockContainer">
       <div className="genresBlock">
+        <button className="genre" onClick={onAllGenreClick}>
+          все
+        </button>
         {genres.map((genre) => (
           <GenresItem data={genre} />
         ))}

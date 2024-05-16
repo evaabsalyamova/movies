@@ -6,8 +6,6 @@ import "./styles.css";
 const FilmList = () => {
   const films = useSelector((state: RootState) => state.movies);
 
-  console.log("REDUX", films);
-
   if (!films) {
     return null;
   }

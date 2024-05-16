@@ -40,7 +40,7 @@ export const getFilmesByGenre = async ({
   genreId,
 }: {
   genreId: number;
-}): Promise<IExternalFilm> => {
+}): Promise<IExternalFilmsData> => {
   const response = await fetch(
     `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${genreId}`,
     {

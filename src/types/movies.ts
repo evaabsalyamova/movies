@@ -28,7 +28,7 @@ export interface IFiltersData {
   genres: IGenre[];
 }
 
-export const filmsMapper = (externalFilms: IExternalFilmsData): IFilm[] => {
+export const filmsMapper = (externalFilms: IExternalFilm[]): IFilm[] => {
   const getFilmName = ({
     nameOriginal,
     nameEn,
@@ -46,7 +46,7 @@ export const filmsMapper = (externalFilms: IExternalFilmsData): IFilm[] => {
     return "Без названия";
   };
 
-  return externalFilms.items.map((externalFilm) => ({
+  return externalFilms.map((externalFilm) => ({
     name: getFilmName(externalFilm),
     id: externalFilm.kinopoiskId,
     year: externalFilm.year,

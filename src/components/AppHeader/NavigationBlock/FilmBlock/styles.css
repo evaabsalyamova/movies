@@ -3,8 +3,7 @@
     align-items: center;
     height: 40px;
     width: 500px;
-    border: 1px solid black;
     margin-left: 10px;
-    margin-top: 10px;
-    gap: 12px
+    margin-top: 20px;
+    gap: 18px
 }

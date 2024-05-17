@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { getFilmesByGenre } from "../../../../../../api/movies";
 import { IGenre, filmsMapper } from "../../../../../../types/movies";
 import { addInitialFilms } from "../../../../../../redux";
+import "./styles.css";
 
 interface IProps {
   data: IGenre;

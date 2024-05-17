@@ -1,0 +1,27 @@
+.genre {
+    border: none;
+    color: gray;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    background-color: transparent;
+}
+
+.genre:hover {
+    color: black
+}
+
+.genre:active {
+    color: black;
+    background-color: rgb(245, 241, 241);
+    height: 40px;
+    border-radius: 11px;
+}
+
+.genre:focus {
+    color: black;
+    background-color: rgb(245, 241, 241);
+    height: 40px;
+    border-radius: 11px;
+}

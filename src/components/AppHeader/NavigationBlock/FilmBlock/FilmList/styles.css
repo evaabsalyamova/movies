@@ -1,8 +1,7 @@
 .filmItemsBlock {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 35px;
   margin-top: 30px;
+  padding: 0 0 0 70px;
 }

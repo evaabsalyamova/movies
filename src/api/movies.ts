@@ -1,8 +1,4 @@
-import {
-  IExternalFilm,
-  IExternalFilmsData,
-  IFiltersData,
-} from "../types/movies";
+import { IExternalFilmsData, IFiltersData } from "../types/movies";
 
 const headers = {
   "X-API-KEY": "d565cdfc-210b-45be-8da0-5965ade46d28",

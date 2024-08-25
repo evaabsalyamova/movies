@@ -40,7 +40,7 @@ const FilmBlock: React.FunctionComponent = () => {
           все
         </button>
         {genres.map((genre) => (
-          <GenresItem data={genre} />
+          <GenresItem genre={genre} />
         ))}
       </div>
       <FilmList />

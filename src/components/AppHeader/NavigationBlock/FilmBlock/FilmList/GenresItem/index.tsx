@@ -5,22 +5,22 @@ import { addInitialFilms } from "../../../../../../redux";
 import "./styles.css";
 
 interface IProps {
-  data: IGenre;
+  genre: IGenre;
 }
 
-const GenresItem: React.FunctionComponent<IProps> = ({ data }) => {
+const GenresItem: React.FunctionComponent<IProps> = ({ genre }) => {
   const dispatch = useDispatch();
   const onGenreClick = () => {
-    const filmList = getFilmesByGenre({ genreId: data.id });
+    const filmList = getFilmesByGenre({ genreId: genre.id });
     if (filmList) {
-      filmList.then((data) =>
-        dispatch(addInitialFilms(filmsMapper(data.items)))
+      filmList.then((filmsByGenre) =>
+        dispatch(addInitialFilms(filmsMapper(filmsByGenre.items)))
       );
     }
   };
   return (
     <button className="genre" onClick={onGenreClick}>
-      {data.genre}
+      {genre.genre}
     </button>
   );
 };

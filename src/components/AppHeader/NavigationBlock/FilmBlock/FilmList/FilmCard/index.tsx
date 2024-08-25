@@ -8,8 +8,10 @@ const FilmCard: React.FunctionComponent<IProps> = ({ data }) => {
   return (
     <div className="filmCardBlock">
       <img className="filmPoster" src={data.poster} alt="poster" />
-      <div className="filmNameBlock">{data.name}</div>
-      <div>{data.year}</div>
+      <div className="filmInfoBlock">
+        <div className="filmName">{data.name}</div>
+        <div className="filmYear">{data.year}</div>
+      </div>
     </div>
   );
 };

@@ -1,20 +1,37 @@
 .filmCardBlock {
-    width: 160px;
+    width: 220px;
     height: 300px;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
 }
 
-.filmNameBlock {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.filmInfoBlock {
+    width: 180px;
+    height: 50px;
     margin-top: 6px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
+    margin-left: 20px;
 }
 
 .filmPoster {
     height: 240px;
-    width: 100%;
+    width: 160px;
     margin-top: 10px;
+}
+
+.filmCardBlock:hover {
+    background-color: rgb(245, 241, 241);
+    border: 1px solid rgb(245, 241, 241);
+    border-radius: 11px;
+    width: 210px;
+}
+
+.filmName {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

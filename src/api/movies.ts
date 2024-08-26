@@ -1,4 +1,8 @@
-import { IExternalFilmsData, IFiltersData } from "../types/movies";
+import {
+  IExternalDetailedFilm,
+  IExternalFilmsData,
+  IFiltersData,
+} from "../types/movies";
 
 const headers = {
   "X-API-KEY": "d565cdfc-210b-45be-8da0-5965ade46d28",
@@ -18,6 +22,7 @@ export const getFilms = async (): Promise<IExternalFilmsData> => {
 
   return response;
 };
+
 export const getGenres = async (): Promise<IFiltersData> => {
   const response = await fetch(
     "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters",
@@ -39,6 +44,24 @@ export const getFilmesByGenre = async ({
 }): Promise<IExternalFilmsData> => {
   const response = await fetch(
     `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${genreId}`,
+    {
+      method: "GET",
+      headers,
+    }
+  )
+    .then((res) => res.json())
+    .then((json) => JSON.parse(JSON.stringify(json)));
+
+  return response;
+};
+
+export const getFilmByID = async ({
+  filmId,
+}: {
+  filmId: number;
+}): Promise<IExternalDetailedFilm> => {
+  const response = await fetch(
+    `https://kinopoiskapiunofficial.tech/api/v2.2/films/${filmId}`,
     {
       method: "GET",
       headers,

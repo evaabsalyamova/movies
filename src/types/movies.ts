@@ -5,6 +5,24 @@ export interface IFilm {
   poster: string;
 }
 
+export interface IDetailedFilm extends IFilm {
+  largePoster: string;
+  description: string;
+  ratingAgeLimits: string;
+  ratingKinopoisk: number;
+  ratingImdb: number;
+  filmLength: number;
+}
+
+export interface IExternalDetailedFilm extends IExternalFilm {
+  posterUrl: string;
+  description: string;
+  ratingAgeLimits: string;
+  ratingKinopoisk: number;
+  ratingImdb: number;
+  filmLength: number;
+}
+
 export interface IExternalFilm {
   kinopoiskId: number;
   year: number;
@@ -52,4 +70,33 @@ export const filmsMapper = (externalFilms: IExternalFilm[]): IFilm[] => {
     year: externalFilm.year,
     poster: externalFilm.posterUrlPreview,
   }));
+};
+
+export const filmDetailedMapper = (
+  externalFilm: IExternalDetailedFilm
+): IDetailedFilm => {
+  const getFilmName = ({
+    nameOriginal,
+    nameEn,
+    nameRu,
+  }: IExternalDetailedFilm): string => {
+    if (nameOriginal && nameOriginal.length > 0) {
+      return nameOriginal;
+    }
+    if (nameEn && nameEn.length > 0) {
+      return nameEn;
+    }
+    if (nameRu && nameRu.length > 0) {
+      return nameRu;
+    }
+    return "Без названия";
+  };
+
+  return {
+    ...externalFilm,
+    name: getFilmName(externalFilm),
+    id: externalFilm.kinopoiskId,
+    poster: externalFilm.posterUrlPreview,
+    largePoster: externalFilm.posterUrl,
+  };
 };
